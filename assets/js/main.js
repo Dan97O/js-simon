@@ -16,6 +16,13 @@ Invece di usare prompt e allerte usate inputs ed elementi della dom per mostrare
 //Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
 
 
+const buttonEl = document.querySelector('button')
+const divEl = document.getElementById('number')
+console.log(divEl);
+
+
+buttonEl.addEventListener('click', function(){
+
 //5 numeri casuali
 function generateNumbersRandom() {
   // Il computer deve generare 5 numeri casuali
@@ -23,14 +30,47 @@ function generateNumbersRandom() {
   while (arrayRandom.length < 5) {
     let randomNumber = Math.floor(Math.random() * 1000)
     arrayRandom.push(randomNumber);
-
+    
     randomNumber++;
   }
   return arrayRandom
 }
 // Creo una costante per richiamare la funzione 
-const numberRandom = generateNumbersRandom()
+let numberRandom = generateNumbersRandom()
 console.log(numberRandom);
+
+//Stampo i numeri in pagina
+divEl.append(numberRandom)
+})
+
+
+
+
+
+
+setTimeout(function (generateNumbersRandom) {
+ numberRandom = ''
+}, 1000)
+
+console.log(numberRandom);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
