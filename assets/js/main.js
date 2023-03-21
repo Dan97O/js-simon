@@ -22,7 +22,7 @@ console.log(divEl);
 
 
 buttonEl.addEventListener('click', function(){
-
+  divEl.innerHTML = ''
 //5 numeri casuali
 function generateNumbersRandom() {
   // Il computer deve generare 5 numeri casuali
@@ -41,6 +41,14 @@ console.log(numberRandom);
 
 //Stampo i numeri in pagina
 divEl.append(numberRandom)
+
+//rimuovo i numeri casuali dopo 30 secondi
+setTimeout(function () {
+ 
+  divEl.remove(numberRandom)
+  location.reload();
+ }, 30000)
+ 
 })
 
 
@@ -48,11 +56,7 @@ divEl.append(numberRandom)
 
 
 
-setTimeout(function (generateNumbersRandom) {
- numberRandom = ''
-}, 1000)
 
-console.log(numberRandom);
 
 
 
