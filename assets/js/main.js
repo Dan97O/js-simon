@@ -19,72 +19,72 @@ const buttonEl = document.querySelector('button')
 const divEl = document.getElementById('number')
 console.log(divEl);
 
-buttonEl.addEventListener('click', function(e){
+buttonEl.addEventListener('click', function (e) {
   e.preventDefault();
 
   //pulisco l'HTML
   divEl.innerHTML = ''
 
-//Genero 5 numeri casuali
-function generateNumbersRandom() {
-  // Il computer deve generare 5 numeri casuali
-  while (arrayRandom.length < 5) {
-    let randomNumber = Math.floor(Math.random() * 10)
-    arrayRandom.push(randomNumber);
-    
-    randomNumber++;
-  }
-  return arrayRandom
-}
+  //Genero 5 numeri casuali
+  function generateNumbersRandom() {
+    // Il computer deve generare 5 numeri casuali
+    while (arrayRandom.length < 5) {
+      let randomNumber = Math.floor(Math.random() * 10)
+        arrayRandom.push(randomNumber);
 
-// Creo una costante per richiamare la funzione 
-let numberRandom = generateNumbersRandom()
-console.log(numberRandom);
-
-//Stampo i numeri in pagina
-divEl.append(numberRandom)
-
-//rimuovo i numeri casuali dopo 30 secondi
- setTimeout(function () {
-  document.getElementById("number").innerHTML = "";
-}, 30000)
- 
-
-setTimeout(function() {
-
-  //salvo i numeri inseriti in un array
-  const userNumber = [];
-  
-  //inserisco i numeri memorizzati
-  for (let i = 0; i < 5 ; i++) {
-    const user = Number(prompt('inserisci i numeri:'))
-    userNumber.push(Number(user))
-    console.log(userNumber);
-  }
-
-  //salvo i numeri corretti in un array
-  const correctNumbers = [];
-  // stabilisco se i numeri sono corretti
-  for (let i = 0; i < 5; i++) {
-    if (userNumber.includes(arrayRandom[i])) {
-      correctNumbers.push(arrayRandom[i]);
-      console.log('Numeri Corretto!!');
-    } else{
-      console.log('Numeri non corretto!!');
+        randomNumber++;
     }
+    return arrayRandom
   }
 
-  //Stampo a schermo i numeri corretti
-  const resultText = document.createTextNode("Hai indovinato " + correctNumbers.length + " i numeri indovinati sono: " + correctNumbers.join(" , "))
-  divEl.append(resultText);
- 
+  // Creo una costante per richiamare la funzione 
+  let numberRandom = generateNumbersRandom()
+  console.log(numberRandom);
 
-  //pulisco html e ricarico la partita
+  //Stampo i numeri in pagina
+  divEl.append(numberRandom)
+
+  //rimuovo i numeri casuali dopo 30 secondi
   setTimeout(function () {
     document.getElementById("number").innerHTML = "";
-    location.reload();
-  }, 10000)
-}, 30100);
+  }, 30000)
+
+
+  setTimeout(function () {
+
+    //salvo i numeri inseriti in un array
+    const userNumber = [];
+
+    //inserisco i numeri memorizzati
+    for (let i = 0; i < 5; i++) {
+      const user = Number(prompt('inserisci i numeri:'))
+      userNumber.push(Number(user))
+      console.log(userNumber);
+    }
+
+    //salvo i numeri corretti in un array
+    const correctNumbers = [];
+    // stabilisco se i numeri sono corretti
+    for (let i = 0; i < 5; i++) {
+      if (userNumber.includes(arrayRandom[i])) {
+        correctNumbers.push(arrayRandom[i]);
+        console.log('Numeri Corretto!!');
+      } else {
+        console.log('Numeri non corretto!!');
+      }
+    }
+
+    //Stampo a schermo i numeri corretti
+    const resultText = document.createTextNode("Hai indovinato " + correctNumbers.length + " i numeri indovinati sono: " + correctNumbers.join(" , "))
+    divEl.append(resultText);
+
+
+    //pulisco html e ricarico la partita
+    setTimeout(function () {
+      document.getElementById("number").innerHTML = "";
+      location.reload();
+    }, 10000)
+  }, 30100);
 
 })
 
