@@ -21,8 +21,11 @@ console.log(divEl);
 
 buttonEl.addEventListener('click', function(e){
   e.preventDefault();
+
+  //pulisco l'HTML
   divEl.innerHTML = ''
-//5 numeri casuali
+
+//Genero 5 numeri casuali
 function generateNumbersRandom() {
   // Il computer deve generare 5 numeri casuali
   while (arrayRandom.length < 5) {
@@ -33,6 +36,7 @@ function generateNumbersRandom() {
   }
   return arrayRandom
 }
+
 // Creo una costante per richiamare la funzione 
 let numberRandom = generateNumbersRandom()
 console.log(numberRandom);
@@ -45,7 +49,6 @@ divEl.append(numberRandom)
   document.getElementById("number").innerHTML = "";
 }, 30000)
  
-
 
 setTimeout(function() {
 
@@ -72,7 +75,7 @@ setTimeout(function() {
   }
 
   //Stampo a schermo i numeri corretti
-  const resultText = document.createTextNode("Hai indovinato " + correctNumbers.length + " numeri: " + correctNumbers.join(" , "))
+  const resultText = document.createTextNode("Hai indovinato " + correctNumbers.length + " i numeri indovinati sono: " + correctNumbers.join(" , "))
   divEl.append(resultText);
  
 
@@ -82,20 +85,6 @@ setTimeout(function() {
     location.reload();
   }, 10000)
 }, 30100);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 })
 
