@@ -75,7 +75,7 @@ buttonEl.addEventListener('click', function (e) {
     }
 
     //Stampo a schermo i numeri corretti
-    const resultText = document.createTextNode("Hai indovinato " + correctNumbers.length + " i numeri indovinati sono: " + correctNumbers.join(" , "))
+    const resultText = document.createTextNode("Hai indovinato " + correctNumbers.length + " numeri. I numeri indovinati sono: " + correctNumbers.join(" , "))
     divEl.append(resultText);
 
 
